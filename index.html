@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DM</title>
+  <meta name="theme-color" content="#1f3b4d">
+  <meta name="description" content="DM — Dictionary Mostafa">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DM">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- loading -->
+  <div id="splash" class="splash">
+    <div class="logo-big">DM</div>
+    <div class="muted">Dictionary Mostafa</div>
+    <div class="credit">Created by Mostafa Narouei</div>
+  </div>
+
+  <!-- login -->
+  <section id="login" class="login hidden">
+    <div class="login-card">
+      <div class="logo-big">DM</div>
+      <p class="muted">دیکشنری شخصی مصطفی</p>
+      <form id="loginForm">
+        <input id="email" type="email" placeholder="ایمیل" dir="ltr" autocomplete="username" required>
+        <input id="password" type="password" placeholder="رمز عبور" dir="ltr" autocomplete="current-password" required>
+        <button class="btn primary" type="submit">Login</button>
+        <p id="loginError" class="error"></p>
+      </form>
+      <div class="credit">Created by Mostafa Narouei</div>
+    </div>
+  </section>
+
+  <!-- main app -->
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="brand">DM</div>
+      <div id="syncStatus" class="sync" title="وضعیت همگام‌سازی">●</div>
+    </header>
+
+    <main id="view"></main>
+
+    <nav class="tabs">
+      <a href="#/words" data-tab="words"><span>📚</span>واژه‌ها</a>
+      <a href="#/review" data-tab="review"><span>🗃️</span>لایتنر<b id="dueBadge" class="badge hidden"></b></a>
+      <a href="#/add" data-tab="add"><span>➕</span>جست‌وجو</a>
+      <a href="#/read" data-tab="read"><span>📄</span>PDF</a>
+      <a href="#/text" data-tab="text"><span>📝</span>متن</a>
+      <a href="#/settings" data-tab="settings"><span>⚙️</span>تنظیمات</a>
+    </nav>
+  </div>
+
+  <!-- floating "look up" button for selected text -->
+  <button id="selBtn" class="sel-btn hidden" title="Ctrl+Shift+D">🔍 DM</button>
+
+  <!-- word card -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" id="modalClose" aria-label="بستن">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
